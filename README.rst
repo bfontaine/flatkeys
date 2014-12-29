@@ -31,6 +31,10 @@ The library works with both Python 2.x and 3.x.
 Usage
 -----
 
-`Read the docs`_.
+.. code-block::
 
-.. _Read the docs: http://flatkeys.readthedocs.org/en/latest/api_reference.html
+    >>> from flatkeys import flatkeys
+    >>> flatkeys({})
+    {}
+    >> flatkeys({1: {2: {3: "yolo"}}})
+    {"1.2.3": "yolo"}
