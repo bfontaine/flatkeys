@@ -5,7 +5,7 @@ from distutils.core import setup
 
 # http://stackoverflow.com/a/7071358/735926
 import re
-VERSIONFILE='flatdict/__init__.py'
+VERSIONFILE='flatkeys/__init__.py'
 verstrline = open(VERSIONFILE, 'rt').read()
 VSRE = r'^__version__\s+=\s+[\'"]([^\'"]+)[\'"]'
 mo = re.search(VSRE, verstrline, re.M)
@@ -15,12 +15,12 @@ else:
     raise RuntimeError("Unable to find version string in %s." % VERSIONFILE)
 
 setup(
-    name='flatdict',
+    name='flatkeys',
     version=verstr,
     author='Baptiste Fontaine',
     author_email='b@ptistefontaine.fr',
-    packages=['flatdict'],
-    url='https://github.com/bfontaine/flatdict',
+    packages=['flatkeys'],
+    url='https://github.com/bfontaine/flatkeys',
     license=open('LICENSE', 'r').read(),
     description='flat dictionnaries',
     long_description="""\

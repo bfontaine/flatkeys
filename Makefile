@@ -1,4 +1,4 @@
-SRC=flatdict
+SRC=flatkeys
 
 COVERFILE:=.coverage
 COVERAGE_REPORT:=report -m
