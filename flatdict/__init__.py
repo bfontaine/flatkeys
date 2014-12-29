@@ -1,7 +1,9 @@
 # -*- coding: UTF-8 -*-
 
+__version__ = '0.0.1'
 
-def flatdict(d): # TESTME
+
+def flatdict(d):  # TESTME
     if type(d) is not dict:
         return d
 
