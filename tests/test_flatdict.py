@@ -19,4 +19,5 @@ class TestFlatdict(unittest.TestCase):
         self.assertEquals(False, flatdict(False))
         self.assertEquals([], flatdict([]))
         self.assertEquals(dict, flatdict(dict))
-        self.assertEquals(lambda:None, flatdict(lambda:None))
+        l = lambda:None
+        self.assertEquals(l, flatdict(l))
