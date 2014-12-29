@@ -3,7 +3,7 @@
 __version__ = '0.0.1'
 
 
-def flatdict(d):  # TESTME
+def flatdict(d):
     if type(d) is not dict:
         return d
 

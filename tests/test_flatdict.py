@@ -21,3 +21,28 @@ class TestFlatdict(unittest.TestCase):
         self.assertEquals(dict, flatdict(dict))
         l = lambda:None
         self.assertEquals(l, flatdict(l))
+
+    def test_nested_empty(self):
+        self.assertEquals({}, flatdict({2: {}}))
+        self.assertEquals({}, flatdict({2: {3: {4: {5: {6: {}}}}}}))
+        self.assertEquals({}, flatdict({2: {3: {}, 4: {5: {6: {}}}}}))
+
+    def test_already_flat(self):
+        d = {
+            1: 42,
+            2: True,
+            3: None,
+            4: [],
+            5: "y"
+        }
+        self.assertEquals(d, flatdict(d))
+
+    def test_already_flat_with_nested_empty_dict(self):
+        d = { 1: 42, 3: None, 4: [] }
+        d2 = d.copy()
+        d2[2] = {}
+        d2[5] = {}
+        self.assertEquals(d, flatdict(d2))
+
+    def test_nested_dict(self):
+        self.assertEquals({"1.2.3": 42}, flatdict({1:{2:{3: 42}}}))
