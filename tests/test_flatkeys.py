@@ -46,3 +46,7 @@ class Testflatkeys(unittest.TestCase):
             d = {"x": d}
         k = "x." * n + "foo"
         self.assertEquals({k: "bar"}, flatkeys(d))
+
+    def test_custom_separator(self):
+        d = {"a": {"c": 42}}
+        self.assertEquals({"abc": 42}, flatkeys(d, sep="b"))
