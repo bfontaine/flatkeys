@@ -8,11 +8,15 @@ def flatkeys(d):
         return d
 
     flat = {}
-    for k, v in d.items():
-        if type(v) is dict:
-            d2 = flatkeys(v)
-            for k2, v2 in d2.items():
-                flat["%s.%s" % (k, k2)] = flatkeys(v2)
-        else:
-            flat[k] = v
+    dicts = [("", d)]
+
+    while dicts:
+        prefix, d = dicts.pop()
+        for k, v in d.items():
+            k_s = str(k)
+            if type(v) is dict:
+                dicts.append(("%s%s." % (prefix, k_s), v))
+            else:
+                k_ = prefix + k_s if prefix else k
+                flat[k_] = v
     return flat

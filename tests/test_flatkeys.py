@@ -46,3 +46,11 @@ class Testflatkeys(unittest.TestCase):
 
     def test_nested_dict(self):
         self.assertEquals({"1.2.3": 42}, flatkeys({1:{2:{3: 42}}}))
+
+    def test_deeply_nested_dict(self):
+        d = {"foo": "bar"}
+        n = 1000
+        for _ in range(n):
+            d = {"x": d}
+        k = "x." * n + "foo"
+        self.assertEquals({k: "bar"}, flatkeys(d))
