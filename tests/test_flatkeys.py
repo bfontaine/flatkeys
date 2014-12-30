@@ -14,14 +14,6 @@ class Testflatkeys(unittest.TestCase):
     def test_empty(self):
         self.assertEquals({}, flatkeys({}))
 
-    def test_not_a_dict(self):
-        self.assertEquals(2, flatkeys(2))
-        self.assertEquals(False, flatkeys(False))
-        self.assertEquals([], flatkeys([]))
-        self.assertEquals(dict, flatkeys(dict))
-        l = lambda:None
-        self.assertEquals(l, flatkeys(l))
-
     def test_nested_empty(self):
         self.assertEquals({}, flatkeys({2: {}}))
         self.assertEquals({}, flatkeys({2: {3: {4: {5: {6: {}}}}}}))

@@ -4,9 +4,6 @@ __version__ = '0.0.1'
 
 
 def flatkeys(d):
-    if type(d) is not dict:
-        return d
-
     flat = {}
     dicts = [("", d)]
 
