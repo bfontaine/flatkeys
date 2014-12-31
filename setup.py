@@ -6,13 +6,17 @@ from distutils.core import setup
 # http://stackoverflow.com/a/7071358/735926
 import re
 VERSIONFILE='flatkeys/__init__.py'
-verstrline = open(VERSIONFILE, 'rt').read()
+with open(VERSIONFILE, 'rt') as vf:
+    verstrline = vf.read()
 VSRE = r'^__version__\s+=\s+[\'"]([^\'"]+)[\'"]'
 mo = re.search(VSRE, verstrline, re.M)
 if mo:
     verstr = mo.group(1)
 else:
     raise RuntimeError("Unable to find version string in %s." % VERSIONFILE)
+
+with open('LICENSE', 'r') as f:
+    license = f.read()
 
 setup(
     name='flatkeys',
@@ -21,7 +25,7 @@ setup(
     author_email='b@ptistefontaine.fr',
     packages=['flatkeys'],
     url='https://github.com/bfontaine/flatkeys',
-    license=open('LICENSE', 'r').read(),
+    license=license,
     description='flat dictionnaries',
     long_description="""\
 An easy way to flatten dictionnaries""",
