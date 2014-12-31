@@ -1,3 +1,8 @@
+upcoming version
+----------------
+
+- support for more types (#1, by @svisser)
+
 v0.1.0 (December, 2014)
 -----------------------
 
