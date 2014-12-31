@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import collections
 
 __version__ = '0.1.0'
 
@@ -25,7 +26,7 @@ def flatkeys(d, sep="."):
         prefix, d = dicts.pop()
         for k, v in d.items():
             k_s = str(k)
-            if type(v) is dict:
+            if isinstance(v, collections.Mapping):
                 dicts.append(("%s%s%s" % (prefix, k_s, sep), v))
             else:
                 k_ = prefix + k_s if prefix else k
